@@ -1,5 +1,7 @@
 package net.softwareminds.hedgehogsinahurry.board
 
-class Cell() {
-  var state : String = "empty";
+import net.softwareminds.hedgehogsinahurry.board.CellState.{EMPTY, CellState}
+
+class Cell {
+  var state : CellState = EMPTY;
 }

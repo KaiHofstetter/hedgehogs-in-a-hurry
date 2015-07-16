@@ -1,6 +1,6 @@
 package net.softwareminds.hedgehogsinahurry.board
 
-class CellState extends Enumeration {
-  type State = Value
+object CellState extends Enumeration {
+  type CellState = Value
   val EMPTY, OCCUPIED = Value
 }
