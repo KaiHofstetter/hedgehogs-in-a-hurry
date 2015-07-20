@@ -8,11 +8,11 @@ object Main {
   def main(args: Array[String]) {
 
     val board = new Board()
-    board.rows(0).cells(0).state = OCCUPIED;
-    board.rows(1).cells(1).state = OCCUPIED;
-    board.rows(2).cells(2).state = OCCUPIED;
-    board.rows(3).cells(3).state = OCCUPIED;
-    board.rows(4).cells(4).state = OCCUPIED;
+      .setCellState(0,0,OCCUPIED)
+      .setCellState(1,1,OCCUPIED)
+      .setCellState(2,2,OCCUPIED)
+      .setCellState(3,3,OCCUPIED)
+      .setCellState(4,4,OCCUPIED);
 
     println("Let the games begin!")
     println(new BoardPrinter(board).printBoard);
