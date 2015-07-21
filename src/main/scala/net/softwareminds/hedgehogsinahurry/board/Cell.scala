@@ -1,6 +1,12 @@
 package net.softwareminds.hedgehogsinahurry.board
 
-import net.softwareminds.hedgehogsinahurry.board.CellState.{EMPTY, CellState}
+import net.softwareminds.hedgehogsinahurry.board.GameToken.GameToken
 
-case class Cell(state : CellState = EMPTY ) {
+case class Cell(gameTokens : List[GameToken] = List()) {
+  def addGameToken(gameToken: GameToken): Cell = {
+
+    val updatedGameTokens : List[GameToken] = gameToken :: gameTokens;
+
+    Cell( updatedGameTokens );
+  }
 }

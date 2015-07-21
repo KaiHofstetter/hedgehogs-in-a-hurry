@@ -1,18 +1,17 @@
 package net.softwareminds.hedgehogsinahurry
 
-import net.softwareminds.hedgehogsinahurry.board.CellState.OCCUPIED
-import net.softwareminds.hedgehogsinahurry.board.{CellState, Board, Row}
+import net.softwareminds.hedgehogsinahurry.board.{GameToken, Board, Row}
 import net.softwareminds.hedgehogsinahurry.ui.BoardPrinter
 
 object Main {
   def main(args: Array[String]) {
 
     val board = new Board()
-      .setCellState(0,0,OCCUPIED)
-      .setCellState(1,1,OCCUPIED)
-      .setCellState(2,2,OCCUPIED)
-      .setCellState(3,3,OCCUPIED)
-      .setCellState(4,4,OCCUPIED);
+      .addGameToken(0,0,GameToken.PLAYER_1)
+      .addGameToken(1,1,GameToken.PLAYER_1)
+      .addGameToken(2,2,GameToken.PLAYER_2)
+      .addGameToken(3,3,GameToken.PLAYER_2)
+      .addGameToken(4,4,GameToken.PLAYER_3);
 
     println("Let the games begin!")
     println(new BoardPrinter(board).printBoard);

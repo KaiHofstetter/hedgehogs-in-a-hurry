@@ -7,7 +7,7 @@ class BoardPrinter(val board: Board) {
     for (row <- board.rows){
       print("|");
       for (cell <- row.cells){
-        print(f"${cell.state}%8s |");
+        print(f"${cell.gameTokens}%20s |");
       }
       println;
     }

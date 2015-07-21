@@ -1,13 +1,12 @@
 package net.softwareminds.hedgehogsinahurry.board
 
-import net.softwareminds.hedgehogsinahurry.board.CellState.CellState
+import net.softwareminds.hedgehogsinahurry.board.GameToken.GameToken
 
 case class Board(val rows: List[Row] = List(new Row(), new Row(), new Row(), new Row(), new Row(), new Row())) {
-  def setCellState(rowNum: Int, cellNum: Int, cellState: CellState): Board = {
-    
-    val updatedCellList : List[Cell] = rows(rowNum).cells.updated(cellNum, Cell(cellState));
-    val updatedRowList : List[Row] = rows.updated(rowNum, Row(updatedCellList));
+  def addGameToken(rowNum: Int, cellNum: Int, gameToken: GameToken): Board = {
 
-    Board(updatedRowList);
+    val updatedRows : List[Row] = rows.updated(rowNum, rows(rowNum).addGameToken(cellNum, gameToken));
+
+    Board( updatedRows );
   }
 }
