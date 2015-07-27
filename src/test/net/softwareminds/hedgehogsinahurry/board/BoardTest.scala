@@ -9,9 +9,7 @@ class BoardTest extends FlatSpec {
   "A new Board" should "not have game tokens" in {
     val board = new Board();
 
-    for (row <- board.rows)
-      for (cell <- row.cells)
-        assert(cell.gameTokens.isEmpty);
+    assert(board.rows forall (_.cells forall (_.gameTokens.isEmpty)))
   }
 
   it should "set the game token at the correct position" in {
