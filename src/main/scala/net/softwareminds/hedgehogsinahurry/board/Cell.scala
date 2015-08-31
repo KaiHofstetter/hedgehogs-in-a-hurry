@@ -9,4 +9,12 @@ case class Cell(gameTokens : List[GameToken] = List()) {
 
     Cell( updatedGameTokens );
   }
+
+  def setBlackField(): Cell = {
+    Cell( null );
+  }
+
+  def isBlackField(): Boolean = {
+    gameTokens == null;
+  }
 }

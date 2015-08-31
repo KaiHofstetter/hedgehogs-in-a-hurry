@@ -5,7 +5,6 @@ import org.scalatest.{FlatSpec, FunSuite}
 
 class BoardTest extends FlatSpec {
 
-
   "A new Board" should "not have game tokens" in {
     val board = new Board();
 
@@ -20,4 +19,11 @@ class BoardTest extends FlatSpec {
     assert(board.rows(2).cells(4).gameTokens.head == GameToken.PLAYER_1)
   }
 
+  it should "allow null value GameTokens for black fields" in {
+    var board = new Board();
+
+    board = board.setBlackField(2,4);
+
+    assert(board.rows(2).cells(4).isBlackField());
+  }
 }

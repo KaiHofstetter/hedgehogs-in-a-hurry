@@ -9,4 +9,11 @@ case class Board(val rows: List[Row] = List(new Row(), new Row(), new Row(), new
 
     Board( updatedRows );
   }
+
+  def setBlackField(rowNum: Int, cellNum: Int): Board = {
+
+    val updatedRows : List[Row] = rows.updated(rowNum, rows(rowNum).setBlackField(cellNum));
+
+    Board( updatedRows );
+  }
 }

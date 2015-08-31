@@ -7,6 +7,10 @@ object Main {
   def main(args: Array[String]) {
 
     val board = new Board()
+      .setBlackField(0,1)
+      .setBlackField(1,2)
+      .setBlackField(2,3)
+      .setBlackField(3,4)
       .addGameToken(0,0,GameToken.PLAYER_1)
       .addGameToken(1,1,GameToken.PLAYER_1)
       .addGameToken(2,2,GameToken.PLAYER_2)

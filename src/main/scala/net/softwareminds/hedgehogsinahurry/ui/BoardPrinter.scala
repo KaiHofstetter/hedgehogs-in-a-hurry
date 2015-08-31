@@ -7,7 +7,11 @@ class BoardPrinter(val board: Board) {
     for (row <- board.rows){
       print("|");
       for (cell <- row.cells){
-        print(f"${cell.gameTokens}%20s |");
+        if( cell.isBlackField() ) {
+          print(f"           X         |");
+        } else {
+          print(f"${cell.gameTokens}%20s |");
+        }
       }
       println;
     }
