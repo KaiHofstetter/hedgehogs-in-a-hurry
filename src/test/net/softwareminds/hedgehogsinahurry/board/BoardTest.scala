@@ -24,6 +24,6 @@ class BoardTest extends FlatSpec {
 
     board = board.setBlackField(2,4);
 
-    assert(board.rows(2).cells(4).isBlackField());
+    assert(board.rows(2).cells(4).isInstanceOf[BlackCell]);
   }
 }

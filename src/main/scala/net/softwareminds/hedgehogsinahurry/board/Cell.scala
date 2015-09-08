@@ -1,20 +1,9 @@
 package net.softwareminds.hedgehogsinahurry.board
 
-import net.softwareminds.hedgehogsinahurry.board.GameToken.GameToken
+import net.softwareminds.hedgehogsinahurry.board.GameToken._
 
-case class Cell(gameTokens : List[GameToken] = List()) {
-  def addGameToken(gameToken: GameToken): Cell = {
+abstract class Cell(val gameTokens : List[GameToken]) {
 
-    val updatedGameTokens : List[GameToken] = gameToken :: gameTokens;
+  def addGameToken(gameToken: GameToken) : Cell
 
-    Cell( updatedGameTokens );
-  }
-
-  def setBlackField(): Cell = {
-    Cell( null );
-  }
-
-  def isBlackField(): Boolean = {
-    gameTokens == null;
-  }
 }
