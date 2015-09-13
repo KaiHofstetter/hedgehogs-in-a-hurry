@@ -1,19 +1,20 @@
 package net.softwareminds.hedgehogsinahurry.ui
 
-import net.softwareminds.hedgehogsinahurry.board.{BlackCell, Board}
+import net.softwareminds.hedgehogsinahurry.board.{Cell, WhiteCell, BlackCell, Board}
 
 class BoardPrinter(val board: Board) {
   def printBoard {
     for (row <- board.rows){
       print("|");
       for (cell <- row.cells){
-        if( cell.isInstanceOf[BlackCell] ) {
-          print(f"           X         |");
-        } else {
-          print(f"${cell.gameTokens}%20s |");
-        }
+        printCell(cell);
       }
       println;
     }
+  }
+
+  private def printCell(cell: Cell): Unit = cell match {
+    case blackCell : BlackCell => print(f"           X         |");
+    case whiteCell : WhiteCell => print(f"${whiteCell.gameTokens}%20s |");
   }
 }
