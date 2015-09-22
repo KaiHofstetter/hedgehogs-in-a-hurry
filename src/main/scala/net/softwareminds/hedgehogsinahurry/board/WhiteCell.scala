@@ -10,4 +10,11 @@ class WhiteCell(gameTokens : List[GameToken] = List()) extends Cell(gameTokens) 
 
     new WhiteCell(updatedGameTokens);
   }
+
+  def removeGameToken(): WhiteCell = {
+
+    val updatedGameTokens: List[GameToken] = gameTokens.drop(1);
+
+    new WhiteCell(updatedGameTokens);
+  }
 }
