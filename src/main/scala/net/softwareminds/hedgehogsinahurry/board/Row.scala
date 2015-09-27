@@ -10,6 +10,14 @@ case class Row(val cells: List[Cell] = List(new WhiteCell(), new WhiteCell(), ne
     Row(updatedCells);
   }
 
+  def moveGameToken(sourceCellNum: Int, destinationCellNum: Int): Row = {
+    val gameToken : GameToken = cells(sourceCellNum).gameTokens.last;
+    val removedCells: List[Cell] = cells.updated(sourceCellNum, cells(sourceCellNum).removeGameToken())
+    val updateCells: List[Cell] = removedCells.updated(destinationCellNum, removedCells(destinationCellNum).addGameToken(gameToken));
+
+    Row(updateCells);
+  }
+
   def setBlackField(cellNum: Int): Row = {
 
     val updatedCells: List[Cell] = cells.updated(cellNum, new BlackCell());

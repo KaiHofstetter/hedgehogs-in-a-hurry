@@ -14,7 +14,7 @@ class BoardPrinter(val board: Board) {
   }
 
   private def printCell(cell: Cell): Unit = cell match {
-    case blackCell : BlackCell => print(f"           X         |");
-    case whiteCell : WhiteCell => print(f"${whiteCell.gameTokens}%20s |");
+    case blackCell : BlackCell => print(f"B${blackCell.gameTokens}%20sB |");
+    case whiteCell : WhiteCell => print(f"W${whiteCell.gameTokens}%20sW |");
   }
 }
