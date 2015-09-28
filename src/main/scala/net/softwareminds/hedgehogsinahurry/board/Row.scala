@@ -11,7 +11,7 @@ case class Row(val cells: List[Cell] = List(new WhiteCell(), new WhiteCell(), ne
   }
 
   def moveGameToken(sourceCellNum: Int, destinationCellNum: Int): Row = {
-    val gameToken : GameToken = cells(sourceCellNum).gameTokens.last;
+    val gameToken : GameToken = cells(sourceCellNum).getLastAddedGameToken();
     val removedCells: List[Cell] = cells.updated(sourceCellNum, cells(sourceCellNum).removeGameToken())
     val updateCells: List[Cell] = removedCells.updated(destinationCellNum, removedCells(destinationCellNum).addGameToken(gameToken));
 

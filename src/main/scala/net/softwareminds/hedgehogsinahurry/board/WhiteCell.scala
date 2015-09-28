@@ -5,16 +5,11 @@ import net.softwareminds.hedgehogsinahurry.board.GameToken.GameToken
 class WhiteCell(gameTokens : List[GameToken] = List()) extends Cell(gameTokens) {
 
   override def addGameToken(gameToken: GameToken): WhiteCell = {
-
-    val updatedGameTokens: List[GameToken] = gameToken :: gameTokens;
-
-    new WhiteCell(updatedGameTokens);
+    new WhiteCell(addGameTokenToCell(gameToken));
   }
 
   override def removeGameToken(): WhiteCell = {
-
-    val updatedGameTokens: List[GameToken] = gameTokens.drop(1);
-
-    new WhiteCell(updatedGameTokens);
+    new WhiteCell(removeLastTokenFromCell());
   }
+
 }

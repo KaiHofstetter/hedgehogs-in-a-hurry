@@ -7,7 +7,7 @@ class WhiteCellTest extends FlatSpec {
   "A new WhiteCell" should "not have game tokens" in {
     val whiteCell = new WhiteCell();
 
-    assert(whiteCell.gameTokens.isEmpty)
+    assert(whiteCell.isEmpty)
   }
 
   it should "add game tokens at the end" in {
@@ -17,10 +17,8 @@ class WhiteCellTest extends FlatSpec {
     whiteCell = whiteCell.addGameToken(GameToken.PLAYER_2);
     whiteCell = whiteCell.addGameToken(GameToken.PLAYER_3);
 
-    assert(whiteCell.gameTokens.size == 3);
-    assert(whiteCell.gameTokens(0) == GameToken.PLAYER_3)
-    assert(whiteCell.gameTokens(1) == GameToken.PLAYER_2)
-    assert(whiteCell.gameTokens(2) == GameToken.PLAYER_1)
+    assert(whiteCell.getNumberOfTokens() == 3);
+    assert(whiteCell.getLastAddedGameToken() == GameToken.PLAYER_3)
   }
 
   it should "remove tokens from the end" in {
@@ -31,8 +29,7 @@ class WhiteCellTest extends FlatSpec {
     whiteCell = whiteCell.addGameToken(GameToken.PLAYER_3);
     whiteCell = whiteCell.removeGameToken();
 
-    assert(whiteCell.gameTokens.size == 2);
-    assert(whiteCell.gameTokens(0) == GameToken.PLAYER_2)
-    assert(whiteCell.gameTokens(1) == GameToken.PLAYER_1)
+    assert(whiteCell.getNumberOfTokens == 2);
+    assert(whiteCell.getLastAddedGameToken() == GameToken.PLAYER_2)
   }
 }
