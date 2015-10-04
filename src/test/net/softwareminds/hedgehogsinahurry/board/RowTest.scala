@@ -11,13 +11,25 @@ class RowTest extends FlatSpec {
     assert(row.cells(2).getLastAddedGameToken() == GameToken.PLAYER_1);
   }
 
-  it should "move a game token" in {
-    val row = new Row().addGameToken(2, GameToken.PLAYER_2);
+  it should "return last added game token" in {
+    val row = new Row().addGameToken(2, GameToken.PLAYER_2)
+                       .addGameToken(2, GameToken.PLAYER_4)
+                       .addGameToken(2, GameToken.PLAYER_1);
 
-    val movedRow = row.moveGameToken(2, 4);
+    val lastAddedGameToken = row.getLastAddedGameToken(2);
 
-    assert(movedRow.cells(2).getNumberOfTokens() == 0);
-    assert(movedRow.cells(4).getNumberOfTokens() == 1);
-    assert(movedRow.cells(4).getLastAddedGameToken() == GameToken.PLAYER_2)
+    assert(lastAddedGameToken == GameToken.PLAYER_1)
+  }
+
+
+  it should "remove last added game token" in {
+    val row = new Row().addGameToken(2, GameToken.PLAYER_2)
+                       .addGameToken(2, GameToken.PLAYER_4)
+                       .addGameToken(2, GameToken.PLAYER_1);
+
+    val updatedRow = row.removeGameToken(2);
+
+    assert(updatedRow.cells(2).getNumberOfTokens() == 2);
+    assert(updatedRow.cells(2).getLastAddedGameToken() == GameToken.PLAYER_4);
   }
 }

@@ -4,22 +4,22 @@ import net.softwareminds.hedgehogsinahurry.board.GameToken._
 
 case class Row(val cells: List[Cell] = List(new WhiteCell(), new WhiteCell(), new WhiteCell(), new WhiteCell(), new WhiteCell())) {
   def addGameToken(cellNum: Int, gameToken: GameToken): Row = {
-
     val updatedCells: List[Cell] = cells.updated(cellNum, cells(cellNum).addGameToken(gameToken));
 
     Row(updatedCells);
   }
 
-  def moveGameToken(sourceCellNum: Int, destinationCellNum: Int): Row = {
-    val gameToken : GameToken = cells(sourceCellNum).getLastAddedGameToken();
+  def removeGameToken(sourceCellNum: Int): Row = {
     val removedCells: List[Cell] = cells.updated(sourceCellNum, cells(sourceCellNum).removeGameToken())
-    val updateCells: List[Cell] = removedCells.updated(destinationCellNum, removedCells(destinationCellNum).addGameToken(gameToken));
 
-    Row(updateCells);
+    Row(removedCells);
+  }
+
+  def getLastAddedGameToken(sourceCellNum: Int): GameToken = {
+    cells(sourceCellNum).getLastAddedGameToken();
   }
 
   def setBlackField(cellNum: Int): Row = {
-
     val updatedCells: List[Cell] = cells.updated(cellNum, new BlackCell());
 
     Row(updatedCells);
