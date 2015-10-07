@@ -10,9 +10,9 @@ case class Row(val cells: List[Cell] = List(new WhiteCell(), new WhiteCell(), ne
   }
 
   def removeGameToken(sourceCellNum: Int): Row = {
-    val removedCells: List[Cell] = cells.updated(sourceCellNum, cells(sourceCellNum).removeGameToken())
+    val updatedCells: List[Cell] = cells.updated(sourceCellNum, cells(sourceCellNum).removeGameToken())
 
-    Row(removedCells);
+    Row(updatedCells);
   }
 
   def getLastAddedGameToken(sourceCellNum: Int): GameToken = {
